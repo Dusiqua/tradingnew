@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hejl Dusan Domonkos - Your Partner in Trading</title>
+    <link rel="stylesheet" href="style/main.css" />
+    <style>
+        #typing-container {
+            display: inline;
+            font-size: 1.5rem;
+            color: #aaa;
+        }
+
+        #typing-text::after {
+            content: '|';
+            display: inline-block;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+            color: #aaa;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body class="landing-page">
+    <div class="container">
+        <h1>
+            Hejl Dusan Domonkos<br>
+            <span id="typing-container">
+                <span id="typing-text"></span>
+            </span>
+        </h1>
+
+        <div class="buttons">
+            <a href="about.html" class="btn">About Me</a>
+            <a href="track-record.html" class="btn">Verified Track Record</a>
+        </div>
+    </div>
+
+    <script>
+        const text = "Your Partner in Trading.";
+        const typingSpan = document.getElementById("typing-text");
+
+        let i = 0;
+        function typeWriter() {
+        if (i < text.length) {
+        typingSpan.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 75);
+        }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
