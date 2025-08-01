@@ -5,10 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Track Record - Hejl Dusan Domonkos</title>
     <link rel="stylesheet" href="style/main.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .table-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        h2.track-heading {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            position: relative;
+        }
+
+        h2.track-heading::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 60px;
+            background: #444;
+            margin: 0.5rem auto 0;
+            animation: expand 2s ease forwards;
+        }
+
+        @keyframes expand {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 60px;
+                opacity: 1;
+            }
+        }
+
+        .stats-summary {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 1.5rem;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.02);
+        }
+
+        .stat-card h3 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .stat-card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .trade-records {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .trade-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(255,255,255,0.02);
+            transition: 0.3s ease;
+        }
+
+        .trade-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255,255,255,0.05);
+        }
+
+        .trade-symbol {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .trade-details {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .change {
+            font-weight: bold;
+        }
+
+        .change.positive {
+            color: #4caf50;
+        }
+
+        .change.negative {
+            color: #f44336;
+        }
+    </style>
 </head>
 <body class="track-record-page">
     <div class="table-container">
-        <h2>Verified Trading Track Record</h2>
+        <h2 class="track-heading">Track Record</h2>
+
+        <div class="stats-summary">
+            <div class="stat-card">
+                <h3>Total Profit</h3>
+                <p id="total-profit">Loading...</p>
+            </div>
+            <div class="stat-card">
+                <h3>Trades Taken</h3>
+                <p id="trades-taken">Loading...</p>
+            </div>
+        </div>
 
         <div class="trade-records">
 
@@ -113,5 +243,23 @@
 
         </div>
     </div>
+
+    <script>
+        const changes = document.querySelectorAll(".change");
+        let profit = 0;
+
+        changes.forEach(el => {
+            const text = el.textContent.trim();
+            const value = parseFloat(text.replace('%', '').replace('+', '').replace('-', ''));
+            if (text.includes('-')) {
+                profit -= value;
+            } else {
+                profit += value;
+            }
+        });
+
+        document.getElementById("total-profit").textContent = `${profit.toFixed(2)}%`;
+        document.getElementById("trades-taken").textContent = changes.length;
+    </script>
 </body>
 </html>
