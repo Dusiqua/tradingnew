@@ -23,15 +23,15 @@ body {
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 12px rgba(255, 255, 255, 0.1);
 }
 
-    .container h1 span {
-        font-weight: 300;
-        font-size: 1.2rem;
-        opacity: 0.8;
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-        font-family: "Courier New", Courier, monospace;
-    }
+.container h1 span {
+    font-weight: 300;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+}
 
 .blink-cursor::after {
     content: "|";
@@ -62,10 +62,10 @@ body {
     backdrop-filter: blur(5px);
 }
 
-    .btn:hover {
-        background-color: white;
-        color: black;
-    }
+.btn:hover {
+    background-color: white;
+    color: black;
+}
 
 /* Track Record Seite */
 .track-record-page {
@@ -97,10 +97,10 @@ body {
     transition: 0.3s ease;
 }
 
-    .trade-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 15px rgba(255,255,255,0.05);
-    }
+.trade-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255,255,255,0.05);
+}
 
 .trade-symbol {
     font-size: 1.2rem;
@@ -121,13 +121,22 @@ body {
     margin-top: 0.5rem;
 }
 
-    .change.positive {
-        color: #4caf50;
-    }
+.change.positive {
+    color: #4caf50;
+}
 
-    .change.negative {
-        color: #f44336;
-    }
+.change.negative {
+    color: #f44336;
+}
+
+/* Frosted Glass Container */
+.frosted-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+}
 
 /* Responsiv */
 @media (max-width: 768px) {
